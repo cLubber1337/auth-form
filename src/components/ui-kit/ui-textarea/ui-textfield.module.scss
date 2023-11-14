@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.textField {
+  width: 100%;
+  padding: 0.5rem;
+
+  background: whitesmoke;
+  border: 2px solid #e3e3e3;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: 0 4px 6px 0 rgb(132 132 132 / 10%);
+
+  &::placeholder {
+    font-style: italic;
+    color: #adadad;
+  }
+
+  &:focus {
+    border: 2px solid #a78bfa;
+  }
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
