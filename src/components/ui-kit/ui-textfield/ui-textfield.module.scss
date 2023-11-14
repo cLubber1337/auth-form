@@ -29,8 +29,17 @@
   }
 }
 
+.errorInput {
+  border: 2px solid #fb7185;
+}
+
 .label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 6px;
   font-size: 1.125rem;
-  font-weight: 500;
+}
+
+.errorText {
+  margin-top: 2px;
+  font-size: .875rem;
+  color: #fb7185;
 }

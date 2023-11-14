@@ -1,25 +1,24 @@
-import { UiButton } from '@/components/ui-kit/ui-button/ui-button'
-import { UiCard } from '@/components/ui-kit/ui-card/ui-card'
-import { UiTextField } from '@/components/ui-kit/ui-textarea/ui-textfield'
+import { SubmitHandler } from 'react-hook-form'
+
+import { SignInForm, SignInFormType } from '@/components/sign-in-form/sign-in-form'
+import { UiCard } from '@/components/ui-kit'
 
 export const App = () => {
+  const handleSubmitSignIn: SubmitHandler<SignInFormType> = data => {
+    console.log(data)
+  }
+
   return (
-    <div
-      style={{ alignItems: 'center', display: 'flex', height: '100vh', justifyContent: 'center' }}
-    >
-      <UiCard>
-        <h1>Sign in</h1>
-        <form>
-          <UiTextField label={'Email'} name={'email'} />
-          <UiTextField label={'Password'} name={'password'} type={'password'} />
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <UiButton variant={'secondary'}>Cancel</UiButton>
-            <UiButton type={'submit'} variant={'primary'}>
-              Login
-            </UiButton>
-          </div>
-        </form>
+    <main className={'sign-in'}>
+      <SignInForm isLoading={false} onSubmit={handleSubmitSignIn} />
+      <UiCard className={'sign-up-card'}>
+        <p style={{ textAlign: 'center' }}>
+          Don&apos;t have an account?{' '}
+          <a href={'#'} style={{ color: '#7e22ce', fontWeight: '500' }}>
+            Sign up
+          </a>
+        </p>
       </UiCard>
-    </div>
+    </main>
   )
 }

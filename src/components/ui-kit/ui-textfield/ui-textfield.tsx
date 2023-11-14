@@ -6,11 +6,15 @@ import s from './ui-textfield.module.scss'
 
 interface UiTextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
+  errorMessage?: string
   label: string
 }
 
 export const UiTextField = forwardRef(
-  ({ className = '', label, ...props }: UiTextFieldProps, ref: ForwardedRef<HTMLInputElement>) => {
+  (
+    { className = '', errorMessage, label, ...props }: UiTextFieldProps,
+    ref: ForwardedRef<HTMLInputElement>
+  ) => {
     return (
       <div className={clsx(s.container, className)}>
         {label && (
@@ -18,7 +22,8 @@ export const UiTextField = forwardRef(
             {label}
           </label>
         )}
-        <input className={s.textField} ref={ref} {...props} />
+        <input className={clsx(s.textField, errorMessage && s.errorInput)} ref={ref} {...props} />
+        {errorMessage && <span className={s.errorText}>{errorMessage}</span>}
       </div>
     )
   }
