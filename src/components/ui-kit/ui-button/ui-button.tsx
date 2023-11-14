@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -8,7 +8,7 @@ type UiButtonProps = {
   children: ReactNode
   className?: string
   variant?: 'primary' | 'secondary'
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const UiButton = ({
   children,

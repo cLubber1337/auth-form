@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 89px;
 }
 
 .textField {
@@ -13,6 +14,10 @@
   border-radius: 6px;
   outline: none;
   box-shadow: 0 4px 6px 0 rgb(132 132 132 / 10%);
+
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .25s;
+  transition-property: border-color;
 
   &::placeholder {
     font-style: italic;

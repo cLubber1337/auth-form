@@ -1,0 +1,12 @@
+.card {
+  width: 90vw;
+  max-width: 400px;
+  max-height: 85vh;
+  padding: 25px;
+
+  background-color: white;
+  border-radius: 6px;
+  box-shadow:
+          hsl(206deg 22% 7% / 35%) 0 10px 38px -10px,
+          hsl(206deg 22% 7% / 20%) 0 10px 20px -15px;
+}
