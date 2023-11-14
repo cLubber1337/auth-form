@@ -2,33 +2,31 @@ import { useForm } from 'react-hook-form'
 
 import { UiButton, UiCard, UiTextField } from '@/components/ui-kit'
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import s from './sign-in-form.module.scss'
-
-type SignInFormProps = {
-  isLoading: boolean
-  onSubmit: (data: SignInFormType) => void
-}
 
 export type SignInFormType = {
   email: string
   password: string
 }
 
-export const SignInForm = ({ isLoading, onSubmit }: SignInFormProps) => {
-  const {
-    formState: { errors },
-    handleSubmit,
-    register,
-  } = useForm<SignInFormType>()
+type SignInFormProps = {
+  errorMessage?: string
+  isLoading: boolean
+  onSubmit: (data: SignInFormType) => void
+}
+
+export const SignInForm = ({ errorMessage, isLoading, onSubmit }: SignInFormProps) => {
+  const { handleSubmit, register } = useForm<SignInFormType>()
 
   return (
     <UiCard>
       <h1 className={s.title}>Sign in</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <UiTextField
-          errorMessage={errors.email?.message}
+          errorMessage={errorMessage}
           required
           {...register('email')}
           label={'Email'}
@@ -37,13 +35,18 @@ export const SignInForm = ({ isLoading, onSubmit }: SignInFormProps) => {
         <UiTextField
           required
           {...register('password')}
-          errorMessage={errors.password?.message}
+          errorMessage={errorMessage}
           label={'Password'}
           type={'password'}
         />
         <div className={s.actions}>
-          <UiButton className={s.submitBtn} type={'submit'} variant={'primary'}>
-            {isLoading && 'Loading...'} Sign in
+          <UiButton
+            className={s.submitBtn}
+            disabled={isLoading}
+            type={'submit'}
+            variant={'primary'}
+          >
+            {isLoading && <FontAwesomeIcon className={'spinner'} icon={faSpinner} />} Sign in
           </UiButton>
           <div className={s.divider}>
             <div className={s.line}></div>
