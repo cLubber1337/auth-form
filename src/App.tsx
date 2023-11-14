@@ -1,9 +1,11 @@
-function App() {
+import { UiButton } from '@/components/ui-kit/ui-button/ui-button'
+
+export const App = () => {
   return (
-    <>
-      <h1>HELLO!</h1>
-    </>
+    <div
+      style={{ alignItems: 'center', display: 'flex', height: '100vh', justifyContent: 'center' }}
+    >
+      <UiButton variant={'secondary'}>Login</UiButton>
+    </div>
   )
 }
-
-export default App
