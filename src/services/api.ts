@@ -3,7 +3,7 @@ import { SignInFormType } from '@/components/sign-in-form/sign-in-form'
 export const auth = (data: SignInFormType): Promise<User> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (data.email === 'test@example.com' && data.password === 'test123') {
+      if (data.email === 'test@example.com' && data.password === '123') {
         resolve({
           email: 'test@example.com',
           id: 1,

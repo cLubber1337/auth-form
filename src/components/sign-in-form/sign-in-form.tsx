@@ -26,6 +26,7 @@ export const SignInForm = ({ errorMessage, isLoading, onSubmit }: SignInFormProp
       <h1 className={s.title}>Sign in</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <UiTextField
+          disabled={isLoading}
           errorMessage={errorMessage}
           required
           {...register('email')}
@@ -33,6 +34,7 @@ export const SignInForm = ({ errorMessage, isLoading, onSubmit }: SignInFormProp
           type={'email'}
         />
         <UiTextField
+          disabled={isLoading}
           required
           {...register('password')}
           errorMessage={errorMessage}

@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  height: 40px;
+  height: 36px;
   padding: 0.5rem 1rem;
 
   font-size: 1rem;
@@ -21,7 +21,7 @@
 
 
   &:focus-visible {
-    outline: 2px solid var(--color-caption);
+    outline: 2px solid #c084fc;
   }
 
   &:disabled {

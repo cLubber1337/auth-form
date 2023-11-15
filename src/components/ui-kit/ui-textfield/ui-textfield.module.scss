@@ -30,6 +30,11 @@
   &:focus {
     border: 2px solid #a78bfa;
   }
+
+  &:disabled {
+    user-select: none;
+    opacity: 0.7;
+  }
 }
 
 .errorInput {
@@ -37,7 +42,7 @@
 }
 
 .label {
-  margin-bottom: 6px;
+  margin-bottom: 2px;
   font-size: 1.125rem;
 }
 
@@ -53,7 +58,10 @@
 
   position: absolute;
   right: 14px;
-  bottom: 33px;
+  bottom: 35px;
+
+  width: 20px;
+  height: 20px;
 
   color: #1f2937;
 

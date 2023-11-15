@@ -1,0 +1,29 @@
+.signIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  height: 100vh;
+
+}
+
+.signUpCard {
+  margin-top: 10px;
+
+  p {
+    text-align: center;
+  }
+}
+
+.signUpLink {
+  font-weight: 500;
+  color: #7e22ce!important;
+}
+
+.testCredentials {
+  margin-top: 2rem;
+  font-size: .875rem;
+  color: whitesmoke;
+}

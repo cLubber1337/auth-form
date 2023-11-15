@@ -3,7 +3,10 @@ import { SubmitHandler } from 'react-hook-form'
 
 import { SignInForm, SignInFormType } from '@/components/sign-in-form/sign-in-form'
 import { UiCard } from '@/components/ui-kit'
+import { UserProfile } from '@/components/user/user-profile'
 import { User, auth } from '@/services/api'
+
+import s from '@/styles/app.module.scss'
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -23,9 +26,9 @@ export const App = () => {
   }
 
   return (
-    <main className={'sign-in'}>
+    <main className={s.signIn}>
       {user ? (
-        <p>{user.name}</p>
+        <UserProfile signOut={() => setUser(null)} {...user} />
       ) : (
         <>
           <SignInForm
@@ -33,15 +36,21 @@ export const App = () => {
             isLoading={isLoading}
             onSubmit={handleSubmitSignIn}
           />
-          <UiCard className={'sign-up-card'}>
-            <p style={{ textAlign: 'center' }}>
+          <UiCard className={s.signUpCard}>
+            <p>
               Don&apos;t have an account?{' '}
-              <a href={'#'} style={{ color: '#7e22ce', fontWeight: '500' }}>
+              <a className={s.signUpLink} href={'#'}>
                 Sign up
               </a>
             </p>
           </UiCard>
         </>
+      )}
+      {!user && (
+        <div className={s.testCredentials}>
+          <p> Email: test@example.com</p>
+          <p> Password: 123</p>
+        </div>
       )}
     </main>
   )
