@@ -13,6 +13,7 @@ export const App = () => {
   const [errorMessage, setErrorMessage] = useState('')
   const [user, setUser] = useState<User | null>(null)
   const handleSubmitSignIn: SubmitHandler<SignInFormType> = async data => {
+    setErrorMessage('')
     setIsLoading(true)
     try {
       const res = await auth(data)
@@ -25,6 +26,10 @@ export const App = () => {
     }
   }
 
+  function clearErrorMessage() {
+    setErrorMessage('')
+  }
+
   return (
     <main className={s.signIn}>
       {user ? (
@@ -32,6 +37,7 @@ export const App = () => {
       ) : (
         <>
           <SignInForm
+            clearErrorMessage={clearErrorMessage}
             errorMessage={errorMessage}
             isLoading={isLoading}
             onSubmit={handleSubmitSignIn}

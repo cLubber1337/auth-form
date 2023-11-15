@@ -13,12 +13,18 @@ export type SignInFormType = {
 }
 
 type SignInFormProps = {
+  clearErrorMessage: () => void
   errorMessage?: string
   isLoading: boolean
   onSubmit: (data: SignInFormType) => void
 }
 
-export const SignInForm = ({ errorMessage, isLoading, onSubmit }: SignInFormProps) => {
+export const SignInForm = ({
+  clearErrorMessage,
+  errorMessage,
+  isLoading,
+  onSubmit,
+}: SignInFormProps) => {
   const { handleSubmit, register } = useForm<SignInFormType>()
 
   return (
@@ -29,14 +35,14 @@ export const SignInForm = ({ errorMessage, isLoading, onSubmit }: SignInFormProp
           disabled={isLoading}
           errorMessage={errorMessage}
           required
-          {...register('email')}
+          {...register('email', { onChange: clearErrorMessage })}
           label={'Email'}
           type={'email'}
         />
         <UiTextField
           disabled={isLoading}
           required
-          {...register('password')}
+          {...register('password', { onChange: clearErrorMessage })}
           errorMessage={errorMessage}
           label={'Password'}
           type={'password'}
